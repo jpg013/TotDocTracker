@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <section class="widget">
+      <header>
+      </header>
+      <div class="widget-body">
+        <form class="form-horizontal" name="kidForm" role="form" novalidate>
+          <fieldset>
+            <legend><strong>Add</strong> Kid</legend>
+            <div class="col-xs-12">
+              <div class="form-group" input-validation>
+                <span class="input-group col-sm-7">
+                  <input type="text" name="firstName" class="form-control" ng-model="firstName" placeholder="First Name" required>
+                  <p class="help-block" ng-if="kidForm.firstName.$error.required">Please enter your kid's first name.</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <div class="form-group" input-validation>
+                <span class="input-group col-sm-7">
+                  <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="lastName" required>
+                  <p class="help-block" ng-if="kidForm.lastName.$error.required">Please enter your kid's last name.</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <div class="form-group" input-validation>
+                <span class="input-group col-xs-7">
+                  <input type="text" class="form-control" name="birthday" datepicker-popup="{{format}}" ng-model="bday" is-open="opened" datepicker-options="dateOptions" close-text="Close" placeholder="Birthday" required>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </span>
+                <p class="help-block" ng-if="kidForm.birthday.$error.date">Please enter a valid birthday.</p>
+                <p class="help-block" ng-if="kidForm.birthday.$error.required">Please enter your kid's birthday.</p>
+              </div>
+            </div>
+            <div class="col-xs-7">
+              <div class="form-group" btn-radio-validation>
+                <pre name="genderDisplay" style="overflow: visible; display: inline-block; min-width: 150px; padding-top: 7px; padding-bottom: 7px; margin: 0">{{gender || 'select gender'}}</pre>
+                <button style="margin-left: -3px" class="btn btn-md btn-default" ng-model="gender" btn-radio="'Male'">M</button>
+                <button style="margin-left: -3px" class="btn btn-md btn-default" ng-model="gender" btn-radio="'Female'">F</button>
+                <p class="help-block" ng-show="genderError">Please select a gender.</p>
+              </div>
+            </div>
+
+          </fieldset>
+          <div class="form-actions">
+            <div class="row">
+              <div class="col-sm-12">
+                <button class="btn btn-primary" ng-click="saveKid()">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-3"></div>
+</div>

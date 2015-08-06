@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">Add kid</h3>
+          </div>
+          <div class="panel-body">
+            <form ng-submit="addKid()">
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input class="form-control" type="text" ng-model="firstName" placeholder="first name">
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input class="form-control" type="text" ng-model="lastName" placeholder="last name">
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label>Gender</label>
+                  <pre>{{gender || 'select gender'}}</pre>
+                  <div class="btn-group" div-class="inline">
+                    <label class="btn btn-primary" ng-model="gender" btn-radio="'Male'">Male</label>
+                    <label class="btn btn-primary" ng-model="gender" btn-radio="'Female'">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label>Birthday</label>
+                <span class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="birthday" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="birthday"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </span>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-xs-12 col-md-3 pull-right">
+                <div class="form-group">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title">Freaking kids</h3>
+        </div>
+        <div class="panel-body">
+          <div ng-repeat="kid in kids">
+            <div class="row">
+              <div class="col-xs-4">
+                {{kid.firstName}} {{kid.lastName}}
+              </div>
+
+              <div class="col-xs-2">
+                <button type="button" ng-click="deleteKid(kid)" class="btn btn-sm btn-danger">Delete</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

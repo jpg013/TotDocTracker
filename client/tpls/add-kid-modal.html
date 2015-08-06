@@ -1,0 +1,48 @@
+<div class="modal-body">
+  <form class="form-horizontal" name="kidForm" role="form" novalidate>
+    <fieldset>
+      <legend><strong>Add</strong> Kid</legend>
+      <div class="col-xs-12">
+        <div class="form-group" input-validation>
+        <span class="input-group col-sm-7">
+          <input type="text" name="firstName" class="form-control" ng-model="firstName" placeholder="First Name" required>
+        </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="form-group" input-validation>
+        <span class="input-group col-sm-7">
+          <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="lastName" required>
+        </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="form-group" input-validation>
+        <span class="input-group col-xs-7">
+          <input type="text" class="form-control" name="birthday" datepicker-popup="{{format}}" ng-model="birthday" is-open="opened" datepicker-options="dateOptions" close-text="Close" placeholder="Birthday" required>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </span>
+        </div>
+      </div>
+      <div class="col-xs-7">
+        <div class="form-group" btn-radio-validation>
+          <pre name="genderDisplay" style="overflow: visible; display: inline-block; min-width: 150px; padding-top: 7px; padding-bottom: 7px; margin: 0">{{gender || 'select gender'}}</pre>
+          <button style="padding-top: 5px; padding-bottom: 5px" class="btn btn-md btn-default" ng-model="gender" btn-radio="'male'">M</button>
+          <button style="padding-top: 5px; padding-bottom: 5px" class="btn btn-md btn-default" ng-model="gender" btn-radio="'female'">F</button>
+          <p class="help-block" ng-show="genderError">Please select a gender.</p>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="saveKid()">Save</button>
+  <button class="btn btn-default" ng-click="closeModal()">Cancel</button>
+</div>

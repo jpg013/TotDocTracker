@@ -1,0 +1,25 @@
+<div class="row" style="margin-top: 15px">
+  <div class="col-sm-8 col-sm-offset-2 well">
+    <h4>{{kid.firstName}} {{kid.lastName}}</h4>
+    <hr>
+    <h5><center>Immunizations</center></h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Immunization</th>
+          <th>Description</th>
+          <th>Date Administered</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="immunization in immunizationList">
+        <td>{{immunization.name}}</td>
+        <td>{{immunization.description}}</td>
+        <td ng-class="{danger: !immunization.administered, success: immunization.administered}"><span ng-show="!immunization.administered">Not Administered</span><span ng-show="immunization.administered">{{immunization.administered}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-info" ng-click="openAddImmunizationModal()">Add Immunization</button>
+    <hr>
+  </div>
+</div>

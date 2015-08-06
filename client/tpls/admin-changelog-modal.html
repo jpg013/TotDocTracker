@@ -1,0 +1,37 @@
+<div class="modal-body">
+  <div class="row" style="margin: 0">
+    <form class="form-horizontal" name="adminForm" role="form" novalidate>
+      <fieldset>
+        <legend><strong>Add</strong> Change Log</legend>
+        <div class="col-sm-6">
+          <div class="col-sm-12">
+            <div class="form-group" input-validation>
+              <input class="form-control" name="title" type="text" ng-model="title" placeholder="Changelog Title" required>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group" input-validation>
+              <span class="input-group">
+                <input type="text" class="form-control" name="date" datepicker-popup="{{format}}" ng-model="date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Change Date" required>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="form-group">
+              <textarea class="form-control" rows="5" ng-model="notes" placeholder="Changelog Notes" required></textarea>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="save()">Save</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

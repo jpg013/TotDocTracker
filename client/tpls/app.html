@@ -1,0 +1,17 @@
+<div ui-view="navigation"></div>
+<div class="row" ng-show="state.$current.name==='app'" style="margin-top: 40px">
+  <div class="col-sm-6">
+    <div class="row" style="margin-left: 25px">
+    </div>
+    <div infinite-scroll="infiniteScroll.more()" infinite-scroll-disabled="infiniteScroll.busy" infinite-scroll-distance="0">
+      <div ng-repeat="changelog in infiniteScroll.items">
+        <changelog-item></changelog-item>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn-default btn-md" ng-click="openFeatureRequestModal()">Request Feature</button>
+  </div>
+</div>
+
+<div ui-view></div>

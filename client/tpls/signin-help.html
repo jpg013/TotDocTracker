@@ -1,0 +1,26 @@
+<div class="navbar navbar-default navbar-fixed-top"></div>
+
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="form-group">
+      <h2 class="text-center">Forgot Password</h2>
+      <hr>
+      <form name="resetPasswordForm" novalidate>
+        <div class="form-group" input-validation>
+          <input placeholder="Enter Your Email" class="form-control" type="email" autofocus="autofocus" name="email" ng-model="email" required>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <button class="btn-primary btn" type="button" ng-click="resetPassword()">Get New Password</button>
+          </div>
+        </div>
+        <div class="login-error" ng-show="error">
+          <div class="login-alert login-alert-danger" role="alert" style="margin-top:10px">
+            <span class="fa fa-exclamation" aria-hidden="true"></span>
+            {{failedMessage}}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="row" style="margin-top: 40px">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>New Appointment</h4>
+      </div>
+      <div class="panel-body">
+        <form name="appointmentForm" class="appointment-form" novalidate>
+          <fieldset>
+            <div class="col-xs-6">
+              <div class="form-group" input-validation>
+                <select class="form-control" name="kid" ng-model="kid" ng-options="kid.firstName + ' ' + kid.lastName for kid in kids track by kid.firstName" required>
+                  <option value=''>Select Kid</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group" input-validation>
+                <span class="input-group">
+                  <input type="text" class="form-control" name="date" datepicker-popup="{{format}}" ng-model="date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Date Appointment Occurred" required>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group" input-validation>
+                <input class="form-control" name="reason" type="text" ng-model="reason" placeholder="Reason for Appointment" required>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group" input-validation>
+                <input class="form-control" name="location" type="text" ng-model="location" placeholder="Name of Doctors Office or Hospital" required>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+              <div class="form-group" input-validation>
+                <input class="form-control" name="height" type="number" ng-model="height" placeholder="Height (inches)" number>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+              <div class="form-group" input-validation>
+                <input class="form-control" name="weight" type="number" ng-model="weight" placeholder="Weight (pounds)" number>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea class="form-control" rows="5" ng-model="notes" placeholder="Any Notes You Want To Add?"></textarea>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input name="immunization" type="text" ng-model="immunization" typeahead="immunization.name for immunization in immunizations | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select='onSelectImmunization($item, $model, $label)' placeholder="Search Immunizations">
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div ng-repeat="selectedImmunization in selectedImmunizations">
+                <selectedimmunizationpill></selectedimmunizationpill>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div class="form-group row" style="margin-top:25px">
+          <div class="col-xs-6 col-xs-offset-3">
+            <a class="btn btn-block btn-info" ng-click="save()">Save</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "name": "TotDocTracker",
+  "version": "0.1.0",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "dependencies": {
+    "angular": "^1.3.0",
+    "async": "*",
+    "bcrypt": "^0.8.3",
+    "body-parser": "*",
+    "bower": "*",
+    "browserify": "^10.2.4",
+    "browserify-shim": "^3.8.9",
+    "connect-redis": "*",
+    "cookie-parser": "*",
+    "del": "*",
+    "express": "*",
+    "express-jwt": "*",
+    "express-session": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-if": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-nodemon": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "jsonwebtoken": "*",
+    "moment": "^2.10.3",
+    "mongoose": "*",
+    "morgan": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "redis": "*",
+    "run-sequence": "*",
+    "sendgrid": "^1.9.2",
+    "underscore": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "gulp-watch": "^4.3.3"
+  }
+}

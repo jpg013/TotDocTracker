@@ -1,0 +1,34 @@
+<div class="navbar navbar-default navbar-fixed-top"></div>
+
+<div class="row" style="margin-top: 15px">
+  <div class="col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    <div class="form-group">
+      <h2 class="text-center">Sign In</h2>
+      <hr>
+      <form ng-submit="login()" name="loginForm" novalidate>
+        <div class="form-group" input-validation>
+          <input placeholder="Email" class="form-control" type="email" autofocus="autofocus" name="email" ng-model="email" required>
+        </div>
+        <div class="form-group" input-validation>
+          <input placeholder="Password" class="form-control" type="password" name="password" ng-model="password" required>
+        </div>
+
+        <div class="row" style="width:80%; margin-top:10px">
+          <div class="col-xs-8">
+            <p style="margin-left: 6px"><a ui-sref="register">New here? Sign up!</a></p>
+            <p style="margin-left: 6px"><a ui-sref="signin_help">Forgot your password?</a></p>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn-primary btn pull-right" type="submit">Sign In</button>
+          </div>
+        </div>
+        <div class="login-error" ng-show="badLogin" style="width:80%">
+          <div class="login-alert login-alert-danger" role="alert">
+            <span class="fa fa-exclamation" aria-hidden="true"></span>
+            {{failedMessage}}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="col-sm-6 col-md-4 col-lg-4">
+    <div class =".panel appointment-card fly-in-from-bottom">
+        <div class="panel-heading appointment-card-title">
+            <h4>{{appointment.kid.firstName}} {{appointment.kid.lastName}}</h4>
+        </div>
+        <hr>
+        <div class="panel-body">
+            <div>
+                <i class="fa fa-clock-o"></i>&nbsp;<strong>Date:&nbsp;</strong>{{appointment.formattedDate}}
+            </div>
+
+            <div>
+                <i class="fa fa-coffee"></i>&nbsp;<strong>Reason:&nbsp;</strong>{{appointment.reason}}
+            </div>
+            <div>
+                <i class="fa fa-building"></i>&nbsp;<strong>Location:&nbsp;</strong>{{appointment.location}}
+            </div>
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-sm btn-info" ng-click="editAppointment(appointment)">Edit</button>
+          <button class="btn btn-sm btn-danger" ng-click="deleteAppointment(appointment)">Delete</button>
+        </div>
+    </div>
+</div>
+
+
