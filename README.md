@@ -16,7 +16,6 @@ $ bower install angular-local-storage --save
 ```
 
 Then run application using:
-**Bower:**
 ```bash
 $ gulp dev
 ```
