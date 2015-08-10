@@ -111,7 +111,7 @@ angular.module('TotDocTracker.kids', [])
               });
             });
           } else {
-            Notifier.notifyError(result.message || "There was an error deleting your kid.");
+            Notifier.notifyError(result.msg || "There was an error deleting your kid.");
           }
         }
       });
@@ -140,7 +140,7 @@ angular.module('TotDocTracker.kids', [])
               $scope.kids = CurrentUser.getUser().kids || [];
             });
           } else {
-            Notifier.notifyError(result.message || "There was an error deleting your kid.");
+            Notifier.notifyError(result.msg || "There was an error deleting your kid.");
           }
         }
       });

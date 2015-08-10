@@ -63,7 +63,6 @@ UsersController = (function() {
           lastName: kid.lastName,
           birthday: kid.birthday,
           gender: kid.gender,
-          vaccines: kid.vaccines
         });
       });
       return res.json(results);
@@ -126,7 +125,7 @@ UsersController = (function() {
       if (exists) {
         return res.json({
           success: false,
-          message: "This kid already exists."
+          msg: "You've already added a kid with this name."
         });
       }
 
@@ -140,22 +139,21 @@ UsersController = (function() {
   };
 
   UsersController.prototype.getContext = function(req, res, next) {
-    console.log("WHAT THE FUCK!!");
     if (!req.user) {
       return res.status(401).send({
-          success: false,
-          message: "User context does not exists"
+        success: false,
+        msg: "User context does not exists"
       });
     } else {
-        var user = {
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            username: req.user.username,
-            id: req.user._id,
-            admin: req.user.admin,
-            kids: req.user.kids
-        };
-        return res.json({success: true, user: user})
+      var user = {
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        username: req.user.username,
+        id: req.user._id,
+        admin: req.user.admin,
+        kids: req.user.kids
+      };
+      return res.json({success: true, user: user})
     }
   };
   return UsersController;

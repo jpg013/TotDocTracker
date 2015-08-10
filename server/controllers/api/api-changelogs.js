@@ -40,22 +40,22 @@ ChangelogController = (function() {
     .skip(skip)
     .limit(limit)
     .exec(function(err, docs) {
-        if (err) {
-            return next(err);
-        }
-        var results = {success: true, list: []};
-        _.each(docs, function(item) {
-          var result = {
-            title: item.title,
-            date: item.date,
-            formattedDate: item.formattedDate,
-            notes: item.notes,
-            _id: item._id
-          };
-          results.list.push(result);
-        });
-        results['hasResults'] = (results.list.length > 0);
-        res.json(results);
+      if (err) {
+          return next(err);
+      }
+      var results = {success: true, list: []};
+      _.each(docs, function(item) {
+        var result = {
+          title: item.title,
+          date: item.date,
+          formattedDate: item.formattedDate,
+          notes: item.notes,
+          _id: item._id
+        };
+        results.list.push(result);
+      });
+      results['hasResults'] = (results.list.length > 0);
+      res.json(results);
     })
   };
 

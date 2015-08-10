@@ -1,8 +1,8 @@
 <div ui-view="navigation"></div>
 <div class="row" ng-show="state.$current.name==='app'" style="margin-top: 40px">
   <div class="col-sm-6">
-    <div class="row" style="margin-left: 25px">
-    </div>
+    <h3 class="text-center">Change Logs</h3>
+    <hr>
     <div infinite-scroll="infiniteScroll.more()" infinite-scroll-disabled="infiniteScroll.busy" infinite-scroll-distance="0">
       <div ng-repeat="changelog in infiniteScroll.items">
         <changelog-item></changelog-item>
@@ -10,7 +10,20 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <button class="btn btn-default btn-md" ng-click="openFeatureRequestModal()">Request Feature</button>
+    <div class="col-sm-12">
+      <div ng-repeat="item in infoItems">
+        <info-item item="item"></info-item>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <h2 class="text-center">Request New Feature</h2>
+      <p class="request-feature-text text-center">Is there a feature that you would like to see in ToTDoc Tracker? Click the button below and fill out the form and we'll try to implement just for you!</p>
+    </div>
+    <div class="col-xs-12 text-center" style="margin-top: -30px">
+      <a ng-click="openFeatureRequestModal()" class="btn btn-primary btn-rounded btn-big btn-full-width  welcome__heading-cta welcome__heading-cta--signup">
+        Request New Feature
+      </a>
+    </div>
   </div>
 </div>
 

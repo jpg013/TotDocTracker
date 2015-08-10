@@ -20,7 +20,6 @@ FeatureRequestsController = (function() {
     }
 
     var data = req.body.featureRequest;
-    console.log(data);
     if (typeof data === 'undefined' || data === null) {
       return res.sendStatus(400);
     }
@@ -35,7 +34,7 @@ FeatureRequestsController = (function() {
       if (err) {
         return next(err);
       }
-      return res.json({success: true, msg: "Thanks! Your feature request has been saved."})
+      return res.json({success: true, msg: "Thanks for your input!"})
     });
   };
 

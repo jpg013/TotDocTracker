@@ -4,6 +4,7 @@ An Angular/Node/Mongo application that allows users to track Doctor's appointmen
 
 ##Get Started
 Run npm install and bower install after cloning repository:
+
 **npm:**
 ```bash
 $ npm install

@@ -13,11 +13,13 @@ module.exports = {
       // Verify the token
       jwt.verify(authToken, process.env.JTW_TOKEN, function(err, decoded) {
         if (err) {
-          return next(err);
+          return next();
         } else if (typeof decoded == "undefined" || decoded == null) {
           return next();
+        } else if (!decoded.user) {
+          return next();
         } else {
-          User.findOne({username: decoded.username, password: decoded.password}, function(err, user) {
+          User.findOne({username: decoded.user.username, password: decoded.user.password}, function(err, user) {
             if (err) return next(err);
             if (user) {
               req.user = user;

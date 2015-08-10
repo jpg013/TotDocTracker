@@ -2,6 +2,15 @@
  * Created by jgraber on 7/1/15.
  */
 angular.module('TotDocTracker')
+  .directive('infoItem', function() {
+    return {
+      restrict: "E",
+      scope: {
+        info: '=item'
+      },
+      templateUrl: 'info-item.html'
+    }
+  })
   .directive('inputValidation', function() {
     return {
       restrict: "A",

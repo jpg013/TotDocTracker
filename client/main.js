@@ -17,7 +17,7 @@ var app = angular.module('TotDocTracker',
     'TotDocTracker.admin',
     'TotDocTracker.changelog',
     'TotDocTracker.signinHelp',
-    'TotDocTracker.recover'
+    'TotDocTracker.passwordRecover'
   ]);
 
 app.controller('featureRequestModalCtrl', ['$scope', '$modalInstance', '$http', function($scope, $modalInstance, $http) {
@@ -41,7 +41,8 @@ app.controller('featureRequestModalCtrl', ['$scope', '$modalInstance', '$http', 
     $modalInstance.dismiss('cancel');
   };
 }]);
-app.controller('appCtrl', ['$scope', '$state', 'InfiniteScrollList', '$modal', 'Notifier', function($scope, $state, InfiniteScrollList, $modal, Notifier) {
+app.controller('appCtrl', ['$scope', '$state', 'InfiniteScrollList', '$modal', 'Notifier', 'InfoItems', function($scope, $state, InfiniteScrollList, $modal, Notifier, InfoItems) {
+  $scope.infoItems = InfoItems.getInfoItems();
   $scope.state = $state;
   $scope.infiniteScroll = new InfiniteScrollList({
     url: '/app/api/changelogs/list'
@@ -151,8 +152,8 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, localStor
     })
     .state('recover', {
       url: '/recover',
-      templateUrl: 'recover.html',
-      controller: 'recoverCtrl'
+      templateUrl: 'password-recover.html',
+      controller: 'passwordRecoverCtrl'
     })
     .state('admin', {
       url: '/admin',

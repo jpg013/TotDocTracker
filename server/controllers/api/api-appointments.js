@@ -82,20 +82,20 @@ AppointmentsController = (function() {
     }
 
     var appointment = new Appointment({
-        date : data.date,
-        reason: data.reason,
-        location: data.location,
-        weight: data.weight,
-        height: data.height,
-        notes: data.notes,
-        immunizations: data.immunizations,
-        userId: req.user._id,
-        createdDate: new Date(),
-        kid: {
-          firstName: data.kid.firstName,
-          lastName: data.kid.lastName,
-          id: data.kid._id
-        }
+      date : data.date,
+      reason: data.reason,
+      location: data.location,
+      weight: data.weight,
+      height: data.height,
+      notes: data.notes,
+      immunizations: data.immunizations,
+      userId: req.user._id,
+      createdDate: new Date(),
+      kid: {
+        firstName: data.kid.firstName,
+        lastName: data.kid.lastName,
+        id: data.kid._id
+      }
     });
 
     appointment.save(function(err) {
@@ -156,22 +156,22 @@ AppointmentsController = (function() {
     .skip(skip)
     .limit(limit)
     .exec(function(err, docs) {
-        if (err) {
-            return next(err);
-        }
-        var results = {success: true, list: []};
-        _.each(docs, function(item) {
-          var result = {
-            formattedDate: item.formattedDate,
-            reason: item.reason,
-            location: item.location,
-            kid: item.kid,
-            _id: item._id
-          };
-          results.list.push(result);
-        });
-        results['hasResults'] = (results.list.length > 0);
-        res.json(results);
+      if (err) {
+        return next(err);
+      }
+      var results = {success: true, list: []};
+      _.each(docs, function(item) {
+        var result = {
+          formattedDate: item.formattedDate,
+          reason: item.reason,
+          location: item.location,
+          kid: item.kid,
+          _id: item._id
+        };
+        results.list.push(result);
+      });
+      results['hasResults'] = (results.list.length > 0);
+      res.json(results);
     })
   };
 

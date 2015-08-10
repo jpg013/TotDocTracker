@@ -13,10 +13,10 @@ angular.module('TotDocTracker.signinHelp', [])
       $http.post('/signin_help', data)
         .success(function(data, status, headers, config) {
           if (data.success) {
-            Notifier.notifySuccess(data.message);
+            Notifier.notifySuccess(data.msg);
             $state.go('login');
           } else {
-            Notifier.notifyError(data.message);
+            Notifier.notifyError(data.msg);
           }
         }).
         error(function(data, status, headers, config) {

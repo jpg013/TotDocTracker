@@ -4,25 +4,24 @@
 
 var express = require('express');
 var apiControllers = require('./controllers/api/index');
-var pubControllers = require('./controllers/public/index');
+var publicControllers = require('./controllers/public/index');
 
 module.exports = function(app) {
 
   // ==============================
-  // public routes ================
+  // PUBLIC ROUTES ================
   // ==============================
-  var publicRouter = express.Router();
-  pubControllers(publicRouter);
-  app.use(publicRouter);
+  publicControllers(app);
 
   // ==============================
-  // Api ROUTES ===================
+  // API ROUTES ===================
   // ==============================
-  var apiRouter = express.Router();
-  apiControllers(apiRouter, express);
-  app.use(apiRouter);
+  apiControllers(app);
 
-  // All other routes should redirect to index.html
+  // ==============================
+  // All other routes should
+  // redirect to index.html
+  // ==============================
   app.route('/*')
     .get(function (req, res) {
       res.sendfile('public/index.html');

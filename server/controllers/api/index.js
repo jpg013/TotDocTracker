@@ -1,8 +1,15 @@
-module.exports = function(apiRouter) {
+var express = require('express');
+
+module.exports = function(app) {
+  var apiRouter = express.Router();
+
   // Init Controllers
-  this.appointmentsController     = require('./api-appointments')(apiRouter);
-  this.usersController            = require('./api-users')(apiRouter);
-  this.immunizaitonsController    = require('./api-immunizations')(apiRouter);
-  this.changelogController        = require('./api-changelogs')(apiRouter);
-  this.featureRequestsController  = require('./api-featurerequests')(apiRouter);
+  require('./api-appointments')(apiRouter);
+  require('./api-users')(apiRouter);
+  require('./api-immunizations')(apiRouter);
+  require('./api-changelogs')(apiRouter);
+  require('./api-featurerequests')(apiRouter);
+
+  // Tell app to use the apiRouter
+  app.use(apiRouter);
 };

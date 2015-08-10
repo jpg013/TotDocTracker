@@ -18,7 +18,7 @@ angular.module('TotDocTracker.login', [])
             });
           } else {
             $scope.badLogin = true;
-            $scope.failedMessage = data.message;
+            $scope.failedMessage = data.msg;
           }
         })
         .error(function(data, status, headers, config) {

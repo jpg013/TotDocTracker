@@ -1,6 +1,24 @@
 var apiPrefix = '/app/api';
 
 angular.module('TotDocTracker')
+  .service('InfoItems', ['CurrentUser', function(CurrentUser) {
+    return {
+      getInfoItems: function() {
+        // Logic to determine what info items the user needs.
+        debugger;
+        var user = CurrentUser.getUser();
+        var infoItems = [];
+        if (!user.kids.length) {
+          var item = {
+            title: "Add Your Kids",
+            msg: "You don't have any kids added to you profile. Before you can create an appointment you need to add at least one kid. Click on the kids link to add your kids."
+          };
+          infoItems.push(item);
+          return infoItems;
+        }
+      }
+    };
+  }])
   .service('InfiniteScrollList', ['$http', function($http) {
     var InfiniteScrollList = function(opts) {
       // Defaults
@@ -10,7 +28,7 @@ angular.module('TotDocTracker')
       this.limit = opts.limit || 7;
       this.hasMore = true;
       this.url = opts.url;
-    }
+    };
 
     InfiniteScrollList.prototype.more = function() {
       if (this.busy) { return; }
@@ -50,7 +68,6 @@ angular.module('TotDocTracker')
         }
       }, this));
     };
-
 
     return InfiniteScrollList;
   }]);
